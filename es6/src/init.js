@@ -2,11 +2,28 @@ let allDancers = [];
 let pushed = false;
 let interval;
 
+
 $(document).ready(function() {
   window.dancers = [];
 
+  const danceFloors = ['gifs/Dancefloor.jpg', 'gifs/dancefloor2.jpg', 'gifs/dancefloor3.jpg'];
+  const tunes = [sound1, sound2, sound3];
+
+  let cur = 0;
+  $('.change').click(function() {
+    tunes[cur].pause();
+    cur++;
+    if (cur === danceFloors.length) {
+      cur = 0;
+    }
+    tunes[cur].play();
+    $('body').css({
+      backgroundImage: `url(${danceFloors[cur]})`
+    });
+  });
+
   $('.lineUp').click(function(e) {
-    let left = 50;
+    let left = 10;
     allDancers.forEach(dancer => {
       dancer.setPosition(300, left);
       left += 100;
