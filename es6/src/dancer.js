@@ -6,17 +6,16 @@ class Dancer {
     this.setPosition(top, left);
   };
 
-  step() {
+  step(callback) {
     var that = this;
+    console.log('stepping')
     setTimeout(() => 
       that.step(), this._timeBetweenSteps);
   };
 
-  setPosition(top, left) {
-    const styleSettings = {
-      top: top,
-      left: left
-    };
-    this.$node.css(styleSettings);
+  setPosition(top, left, css = {}) {
+    this.$node.css(Object.assign(css, {top:top, left:left}));
   };
 };
+
+window.Dancer = Dancer;
