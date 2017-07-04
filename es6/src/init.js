@@ -1,4 +1,6 @@
-var allDancers = [];
+let allDancers = [];
+let pushed = false;
+let interval;
 
 $(document).ready(function() {
   window.dancers = [];
@@ -10,6 +12,23 @@ $(document).ready(function() {
       left += 100;
     });
   });
+
+  $('.mouseMove').click(function(e) {
+    if (!pushed) {
+      pushed = true;
+    } else {
+      clearInterval(interval);
+      pushed = false;
+    }
+  });
+
+  $(window).on('mousemove', function(e) {
+    if (pushed) {
+      allDancers.forEach(dancer => {
+        dancer.setPosition(e.clientY + 50, e.clientX + 50);
+      });
+    }
+  })
 
   $('.addDancerButton').on('click', function(event) {
     var dancerMakerFunction = window[$(this).data('dancer-maker-function-name')];
