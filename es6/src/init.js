@@ -49,13 +49,13 @@ $(document).ready(function() {
         dancer.setPosition(e.clientY + 50, e.clientX + 50);
       });
     }
-  })
+  });
 
   $('.addDancerButton').on('click', function(event) {
     var dancerMakerFunction = window[$(this).data('dancer-maker-function-name')];
     var dancer = new dancerMakerFunction(
-      ((($("body").height()-200) - 50) * Math.random()) + 50,
-      ((($("body").width()-100) - 100) * Math.random()) + 100,
+      ((($('body').height() - 200) - 50) * Math.random()) + 50,
+      ((($('body').width() - 100) - 100) * Math.random()) + 100,
       Math.random() * 1000
     );
     allDancers.push(dancer);
