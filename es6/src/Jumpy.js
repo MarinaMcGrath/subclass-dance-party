@@ -18,7 +18,6 @@ class Jumpy extends Dancer {
             this.setPosition(this.top, this.left);
             this.up = false;
         }
-        // this.$node.toggle();
     }
 }
 

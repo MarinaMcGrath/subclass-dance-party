@@ -26,6 +26,10 @@ $(document).ready(function() {
     let left = 10;
     allDancers.forEach(dancer => {
       dancer.setPosition(300, left);
+      if (dancer instanceof Jumpy) {
+        dancer.top = 300;
+        dancer.left = left;
+      }
       left += 100;
     });
   });
