@@ -5,14 +5,14 @@ class Jumpy extends Dancer {
         this.left = left;
         this.up = false;
 
-        this.$node = $('<img src="gifs/Jumpy.gif" class="dancer-img"/>');
+        this.$node.append($('<img src="gifs/Jumpy.gif" class="dancer-img"/>'));
         this.setPosition(top, left);
     }
 
     step() {
         Dancer.prototype.step.call(this);
         if (!this.up) {
-            this.setPosition(this.top - 100, this.left);
+            this.setPosition(this.top - 50, this.left);
             this.up = true;
         } else {
             this.setPosition(this.top, this.left);

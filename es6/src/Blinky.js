@@ -1,7 +1,7 @@
 class Blinky extends Dancer {
   constructor(top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
-    this.$node = $('<img src="gifs/Blinky.gif" class="dancer-img"/>');
+    this.$node.append($('<img src="gifs/Blinky.gif" class="dancer-img"/>'));
     this.setPosition(top, left);
   }
 

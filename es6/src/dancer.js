@@ -8,13 +8,12 @@ class Dancer {
 
   step(callback) {
     var that = this;
-    console.log('stepping')
     setTimeout(() => 
       that.step(), this._timeBetweenSteps);
   };
 
   setPosition(top, left, css = {}) {
-    this.$node.css(Object.assign(css, {top:top, left:left}));
+    this.$node.css(Object.assign(css, {top:top, left:left, border: 0}));
   };
 };
 
